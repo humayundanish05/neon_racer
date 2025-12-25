@@ -310,9 +310,13 @@ window.changeSetting = function (key, val) {
 function initSettingsUI() {
     document.getElementById('btnSettings').addEventListener('click', () => {
         document.getElementById('settingsPanel').style.display = 'block';
+        document.getElementById('overlay').classList.add('blur-bg'); // Blur landing
+        document.getElementById('container').classList.add('blur-bg'); // Blur game
     });
     document.getElementById('btnCloseSettings').addEventListener('click', () => {
         document.getElementById('settingsPanel').style.display = 'none';
+        document.getElementById('overlay').classList.remove('blur-bg');
+        document.getElementById('container').classList.remove('blur-bg');
     });
 
     const colors = ['#ff0000', '#00ffff', '#39ff14', '#ffff00', '#ff00ff', '#ffffff', '#111111'];
@@ -353,6 +357,7 @@ function initSettingsUI() {
     // Biomes
     const biomes = [
         { id: 'city', icon: '🌃', name: 'Night City' },
+        { id: 'village', icon: '🏘️', name: 'Village' },
         { id: 'desert', icon: '🏜️', name: 'Desert' },
         { id: 'jungle', icon: '🌴', name: 'Jungle' },
         { id: 'ocean', icon: '🌊', name: 'Ocean' }
