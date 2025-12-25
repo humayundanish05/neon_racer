@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no" />
+    <title>Neon Racer: Night City</title>
+    <link rel="stylesheet" href="style.css">
+    <script type="importmap">
+    {
+      "imports": {
+        "three": "https://unpkg.com/three@0.152.2/build/three.module.js",
+        "three/addons/": "https://unpkg.com/three@0.152.2/examples/jsm/"
+      }
+    }
+  </script>
+</head>
+
+<body>
+
+    <div id="ui">
+        <div class="panel">
+            <div class="label">Distance</div>
+            <div class="value" id="scoreVal">0 m</div>
+        </div>
+        <div class="panel">
+            <div class="label">Speed</div>
+            <div class="value" id="speedVal">0 <span style="font-size:14px">km/h</span></div>
+        </div>
+        <div class="panel" style="border-color: #ff00de;">
+            <div class="label">High Score</div>
+            <div class="value" id="highScoreVal">0 m</div>
+        </div>
+        <div class="panel" style="border-color: #e74c3c;">
+            <div class="label">Health</div>
+            <div class="value" id="healthVal" style="color:#e74c3c">❤️❤️❤️</div>
+        </div>
+    </div>
+
+    <!-- NEAR MISS HUD -->
+    <div id="comboHUD">NEAR MISS! +100</div>
+
+    <div id="overlay">
+        <div class="overlay-content">
+            <h1 class="glitch-title" data-text="NEON RACER">NEON RACER</h1>
+            <p class="subtitle">SURVIVE THE HIGHWAY</p>
+
+            <div class="menu-buttons">
+                <button id="btnStart" class="btn-main">START ENGINE</button>
+                <button id="btnSettings" class="btn-sec">SETTINGS</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="settingsPanel">
+        <h2>Settings</h2>
+        <div class="setting-row">
+            <span class="setting-label">CONTROLS</span>
+            <div class="btn-grid" id="controlsTypeContainer"></div>
+        </div>
+        <div class="setting-row">
+            <span class="setting-label">CAR COLOR</span>
+            <div id="colorsContainer"></div>
+        </div>
+        <div class="setting-row">
+            <span class="setting-label">CAR TYPE</span>
+            <div class="btn-grid" id="carTypeContainer"></div>
+        </div>
+        <div class="setting-row">
+            <span class="setting-label">ENVIRONMENT</span>
+            <div class="btn-grid" id="biomeContainer"></div>
+        </div>
+        <button id="btnCloseSettings">DONE</button>
+    </div>
+
+    <div class="controls-zone" id="controls-right">
+        <div class="btn-touch" id="btnBoost" style="--progress:0deg">
+            <span>NITRO</span>
+            <span class="timer"></span>
+        </div>
+        <div class="btn-touch" id="btnGas">GAS</div>
+        <div class="btn-touch" id="btnBrake">STOP</div>
+    </div>
+
+    <div id="controls-left">
+        <div id="ctrl-slider-group">
+            <input type="range" id="sliderSteer" min="-100" max="100" value="0" step="1">
+        </div>
+        <div id="ctrl-buttons-group">
+            <div class="btn-steer" id="btnLeft">◄</div>
+            <div class="btn-steer" id="btnRight">►</div>
+        </div>
+        <div id="ctrl-wheel-group">
+            <div id="steeringWheel">
+                <div class="wheel-spoke spoke-h"></div>
+                <div class="wheel-spoke spoke-v"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="danger-overlay" id="dangerOverlay"></div>
+    <div id="container"></div>
+
+    <script type="module" src="js/game.js"></script>
+</body>
+
+</html>
