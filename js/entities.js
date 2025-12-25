@@ -208,6 +208,11 @@ export const poolScenery = new SimplePool(() => {
     const c = new THREE.Mesh(RES.geoCactus, RES.matCactus); c.position.y = 2.5; c.visible = false; c.name = 'cactus'; group.add(c);
     const r = new THREE.Mesh(RES.geoRock, RES.matRock); r.position.y = 1; r.visible = false; r.name = 'rock'; group.add(r);
 
+    const h = new THREE.Group();
+    const w = new THREE.Mesh(RES.geoHouseWall, RES.matHouseWall); w.position.y = 2;
+    const rf = new THREE.Mesh(RES.geoHouseRoof, RES.matHouseRoof); rf.position.y = 5.5; rf.rotation.y = Math.PI / 4;
+    h.add(w, rf); h.visible = false; h.name = 'house'; group.add(h);
+
     // Island
     const isle = new THREE.Mesh(RES.geoIsland, RES.matIsland); isle.position.y = 1; isle.visible = false; isle.name = 'island'; group.add(isle);
 
