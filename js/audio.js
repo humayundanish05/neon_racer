@@ -1,6 +1,8 @@
 import { userSettings } from './state.js';
 
-let audioCtx;
+import { userSettings } from './state.js';
+
+export let audioCtx;
 let engineOsc, engineGain;
 
 export function initAudio() {
